@@ -12,4 +12,4 @@
 2. Any email and password combination will work
 
 ####
-Note: This repository hosts a functional prototype for end consumers of the "RAY" (Mary Khetani) project--not a working, polished and tested application. 
+Note: This repository hosts a functional prototype for end consumers of the "PEM+" (Mary Khetani) project--not a working, polished and tested application. 
