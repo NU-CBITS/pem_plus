@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" id="cbitsPrototype-app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>PEM +</title>
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/css/ui-bootstrap-custom-1.3.3-csp.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div ng-include="'partials/navbar.html'" ng-controller="NavBarController as navbar"></div>
+    <div ng-view id="main" class="container-fluid main-container"></div>
+
+    <script type="text/javascript" src="vendor/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="vendor/js/jquery-ui-1.11.4.js"></script>
+    <script type="text/javascript" src="vendor/js/jquery.ui.touch-punch.js"></script>
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/angular-resource.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script type="text/javascript" src="vendor/js/mobiscroll.custom-2.16.0.min.js"></script>
+    <script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/js/ui-bootstrap-custom-1.3.3.min.js"></script>
+    <script type="text/javascript" src="vendor/js/ui-bootstrap-custom-tpls-1.3.3.min.js"></script>
+    <script type="text/javascript" src="vendor/js/jspdf.min.js"></script>
+    <script type="text/javascript" src="vendor/js/html2canvas.min.js"></script>
+    <script type="text/javascript" src="vendor/js/anguvideo.js"></script>
+
+    <script type="text/javascript" src="js/Application.js"></script>
+    <script type="text/javascript" src="js/Constants.js"></script>
+
+    <script type="text/javascript" src="js/constants/Routes.js"></script>
+    <script type="text/javascript" src="js/constants/Uuid.js"></script>
+    <script type="text/javascript" src="js/constants/RandomInt.js"></script>
+    <script type="text/javascript" src="js/constants/LessonPlans.js"></script>
+    <script type="text/javascript" src="js/constants/User.js"></script>
+    <script type="text/javascript" src="js/constants/Site.js"></script>
+
+    <script type="text/javascript" src="js/controllers/SessionsController.js"></script>
+    <script type="text/javascript" src="js/controllers/LessonsArchiveController.js"></script>
+    <script type="text/javascript" src="js/controllers/LessonsCurrentController.js"></script>
+    <script type="text/javascript" src="js/controllers/SettingsController.js"></script>
+    <script type="text/javascript" src="js/controllers/HistoryController.js"></script>
+    <script type="text/javascript" src="js/controllers/IndexController.js"></script>
+    <script type="text/javascript" src="js/controllers/ToolsController.js"></script>
+    <script type="text/javascript" src="js/controllers/HandbooksController.js"></script>
+    <script type="text/javascript" src="js/controllers/HelpController.js"></script>
+    <script type="text/javascript" src="js/controllers/TipsArchiveController.js"></script>
+
+
+    <script type="text/javascript" src="js/controllers/NavBarController.js"></script>
+
+    <script type="text/javascript" src="js/services/Session.js"></script>
+    <script type="text/javascript" src="js/caches/SessionsCache.js"></script>
+    <script type="text/javascript" src="js/services/SessionAnswer.js"></script>
+    <script type="text/javascript" src="js/caches/SessionAnswerCache.js"></script>
+    <script type="text/javascript" src="js/services/AsyncContent.js"></script>
+    <script type="text/javascript" src="js/caches/ResourceCache.js"></script>
+
+    <script type="text/javascript" src="js/directives/HighchartsGraphDirective.js"></script>
+
+<script>
+    (function() {
+        var $rootScope;
+
+        function initialize() {
+            // Access the $rootScope from outside the application.
+            var injector = angular.bootstrap(document.getElementById('cbitsPrototype-app'), ['cbitsPrototype-app']);
+            $rootScope = injector.get('$rootScope');
+        }
+
+        function onResume() {
+            // Let the application know it is resuming.
+            if ($rootScope) {
+                $rootScope.$broadcast('resume');
+            }
+        }
+
+        document.addEventListener('deviceready', initialize, false);
+        document.addEventListener('resume', onResume, false);
+
+        initialize();
+        onResume();
+
+    })();
+</script>
+</body>
+</html>

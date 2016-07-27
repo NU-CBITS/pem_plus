@@ -1,0 +1,148 @@
+<h2>Home Participation Profile</h2>
+<div class="row">
+<div class="col-md-6"><h4>This diagram shows how often your child participates in home activities.</h4>
+<p>(1= never, 2= once in the last 4 months, 3= few times in the last 4 months, 4= once in the last month, 5= few times in the last month, 6= once each week, 7= few times each week, 8= once or more each day)</p></div>
+<div class="col-md-6"><h4>This diagram shows how involved your child is when participating in home activities.</h4><p>
+(1= not very involved, 3= somewhat involved, 5= very involved)</p></div>
+</div>
+
+<div class="row">
+<div class="col-md-6" id="container"></div>
+<div class="col-md-6" id="container2"></div>
+</div>
+
+<script>$(function () {
+
+    $('#container').highcharts({
+
+        chart: {
+            type: 'column'
+        },
+
+        title: {
+            text: '',
+            x: -80
+        },
+
+        pane: {
+            size: '55%'
+        },
+
+        xAxis: {
+            categories: ['Getting rest',
+                    'Personal care management',
+                    'Getting clean', 
+                    'Mealtime',
+                    'Cleaning up',
+                    'Meal preparation',
+                    'Taking care of other family members',
+                    'Personal care management',
+                    'Doing Laundry',
+                    'House guests',
+                    'Celebrations at home',
+                    'Indoor play and games',
+                    'Screen time',
+                    'Arts, crafts, stories, music'],
+            tickmarkPlacement: 'on',
+            lineWidth: 0
+        },
+
+        yAxis: {
+            gridLineInterpolation: 'polygon',
+            lineWidth: 0,
+            min: 0
+        },
+
+        tooltip: {
+            shared: true,
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
+        },
+
+        legend: {
+            align: 'right',
+            verticalAlign: 'top',
+            y: 70,
+            layout: 'vertical'
+        },
+
+        series: [{
+            name: 'This Year',
+            data: [8,3,4,5,6,6,7,8,8,8,8,8,3,5],
+            pointPlacement: 'on'
+        }, {
+            name: 'Last Year',
+            data: [8,2,1,5,3,4,5,3,4,5,6,5,4,6],
+            pointPlacement: 'on'
+        }]
+
+    });
+});
+</script>
+
+<script>$(function () {
+
+    $('#container2').highcharts({
+
+        chart: {
+            type: 'column'
+        },
+
+        title: {
+            text: '',
+            x: -80
+        },
+
+        pane: {
+            size: '55%'
+        },
+
+        xAxis: {
+            categories: ['Getting rest',
+                    'Personal care management',
+                    'Getting clean', 
+                    'Mealtime',
+                    'Cleaning up',
+                    'Meal preparation',
+                    'Taking care of other family members',
+                    'Personal care management',
+                    'Doing Laundry',
+                    'House guests',
+                    'Celebrations at home',
+                    'Indoor play and games',
+                    'Screen time',
+                    'Arts, crafts, stories, music'],
+            tickmarkPlacement: 'on',
+            lineWidth: 0
+        },
+
+        yAxis: {
+            gridLineInterpolation: 'polygon',
+            lineWidth: 0,
+            min: 0
+        },
+
+        tooltip: {
+            shared: true,
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
+        },
+
+        legend: {
+            align: 'right',
+            verticalAlign: 'top',
+            y: 70,
+            layout: 'vertical'
+        },
+
+        series: [{
+            name: 'This Year',
+            data: [1,1,1,1,3,3,5,5,3,1,3,5,3,1],
+            pointPlacement: 'on'
+        }, {
+            name: 'Last Year',
+            data: [3,3,3,5,1,1,3,1,1,5,3,1,1,3],
+            pointPlacement: 'on'
+        }]
+
+    });
+});
+</script>

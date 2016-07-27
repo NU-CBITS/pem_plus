@@ -1,0 +1,31 @@
+<h2>Ask for help!</h2>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">If you get stuck--it's completely OK to message someone on the Project Activate team for help.</h3>
+    </div>
+	<div class="panel-body">
+
+	<p>
+        <form>
+            <div class="form-group">
+                <label>What do you need assistance with?</label>
+                <select class="form-control">
+                    <option></option>
+                    <option>I'm confused about what I'm supposed to do</option>
+                    <option>Something is broken or isn't working</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">What else can you tell us about the problem?</label>
+                <textarea name="message" class="form-control" placeholder="e.g. the page keeps crashing!"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" ng-click="help.showConfirmation()">
+            </div>
+        </form>
+
+        <div class="alert alert-success" ng-show="help.confirmationVisible">Thanks for your note! Someone will be following up shortly!</div>
+	</div>
+</div>

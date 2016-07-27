@@ -1,0 +1,25 @@
+<h2>Handbooks</h2>
+
+<div class="bs-callout bs-callout-primary">
+<p>As you finish your lesson plans, feel free to return here to for a quick reference!</p>
+</div>
+
+<div ng-repeat="task in handbooks.availableHandbooks() track by $index" class="bs-callout bs-callout-{{task.status}}}"> 
+	<a ng-href="{{task.target}}">
+		<div class="row">
+			<div class="col-md-1 col-sm-1 col-xs-1">
+			<i class="fa fa-{{task.icon}} fa-2x"></i>
+			</div>
+			<div class="col-md-7 col-sm-7 col-xs-7">
+			{{task.name}}
+			<br/><label class="label label-success" ng-show="task.completed"><i class="fa fa-check-circle"></i> completed</label>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-3">
+			<span ng-if="!task.available">not available</span>
+			</div>
+			<div class="col-md-1 col-sm-1 col-xs-1 text-right">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+			</div>
+		</div>
+	</a>
+</div>

@@ -1,0 +1,53 @@
+<h2>Setting Manageable Goals</h2>
+<div class="bs-callout bs-callout-primary">
+    <p>It is important to divide your social rhythm goals into long-term and short-term goals and then to decide which of these goals are “manageable” in a 1-2 week time frame!</p>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Below identify some common social rhythm goals. Decide whether you would categorize them as manageable, unmanageable, or long-term.</h3> </div>
+    <div class="panel-body" ng-show="manageable.panelVisible[0]">
+
+        <i>Make sure to answer all questions!</i>
+        <div ng-repeat="goal in manageable.goals track by goal.id">
+            <label>{{goal.name}}</label>
+            <br/>
+            <div class="row">
+                <label class="btn btn-default full-width btn-sm align-left" ng-repeat="response in manageable.goalResponses track by $index">
+                    <div class="col-md-1 text-right">
+                        <input type="radio" name="goal{{goal.id}}" ng-model="manageable.goals[goal.id-1].response" value="{{$index}}"> </div>
+                    <div class="col-md-11 text-left">{{response}} </div>
+                </label>
+            </div>
+            <br/>
+            </br/> </div>
+    </div>
+    <div class="panel-body" ng-show="manageable.panelVisible[1]">
+        <h3>Your goals are:</h3>
+        <div class="row" ng-repeat="category in manageable.goalResponses track by $index">
+            <div class="col-md-12">
+                <div class="well">
+                    <h4>
+                        {{category}}
+                    </h4>
+                    <ul>
+                        <li ng-repeat="goal in manageable.goals track by goal.id" ng-show="goal.response == $parent.$index"> {{goal.name}} </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body" ng-show="manageable.panelVisible[2]">
+        <div class="alert alert-danger"> Holly! Conclusion content, if possible! </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <button ng-show="manageable.panelVisible[1]" class="btn btn-default" ng-click="manageable.showPanel(0)"><i class="fa fa-chevron-left"></i> Back </button>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                <div class="alert alert-info" ng-show="!manageable.allGoalsAnswered()">Make sure to answer all questions to continue!</div>
+                <button ng-show="manageable.panelVisible[0]" class="btn btn-primary" ng-click="manageable.showPanel(1)" ng-disabled="!manageable.allGoalsAnswered()">Continue <i class="fa fa-chevron-right"></i> </button>
+                <button ng-show="manageable.panelVisible[1]" class="btn btn-primary" ng-click="manageable.showPanel(2)">Continue <i class="fa fa-chevron-right"></i> </button> <a class="btn" ng-show="manageable.panelVisible[2]" href="#/lessons_current">Continue <i class="fa fa-chevron-right"></i></a> </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<h2>{{session.lessonTitle}}</h2>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{session.slideTitle()}}</h3>
+    </div>
+    <div class="panel-body lesson-slide" ng-bind-html="session.slideContent()">
+    </div>
+    <div class="panel-footer">
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+            <button class="btn btn-default" ng-click="session.back()" ng-show="session.showBackButton()"><i class="fa fa-chevron-left"></i></button>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 text-center">
+            {{session.currentSlideIndex + 1}} of {{session.slides.length}}
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+            <button class="btn btn-default" ng-click="session.next()" ng-show="session.showNextButton()"><i class="fa fa-chevron-right"></i></button>
+            <a ng-click="session.finish()" ng-show="session.showFinishedLink()">return home <i class="fa fa-angle-double-right"></i></a>
+        </div>
+    </div>
+</div>
