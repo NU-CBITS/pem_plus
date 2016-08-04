@@ -58,14 +58,19 @@ h2 {
 
 }
 
-.strategy li {
-    list-style-type:;
+ul li ul li {
+    list-style-type: none;
+    margin-left:-2em;
 }
 
+ul li ul li:before {
+    content: "\00BB \0020";
+}
 /* to preserve vertical height of divs in rows */
 .height200 {height:200px;}
 .height245 {height:245px;}
 .height300 {height:300px;}
+.height330 {height:330px;}
 
 /* callouts */
 .bs-callout {
