@@ -1,0 +1,121 @@
+
+<h2>Checkout PEM+</h2>
+
+	<button class="btn btn-default" ng-click="checkout.step = 1">Step 1</button><br/><br/>
+	<button class="btn btn-default" ng-click="checkout.step = 2">Step 2</button><br/><br/>
+	<button class="btn btn-default" ng-click="checkout.step = 3">Step 3</button><br/><br/>
+	<button class="btn btn-default" ng-click="checkout.step = 4">Step 4</button><br/><br/>
+	<button class="btn btn-default" ng-click="checkout.step = 5">Step 5</button>
+
+<div ng-show="checkout.step == 1">
+	<div class="well">
+		<label>
+		Do you have a specific activity in mind you would like to work on first?
+		</label><Br/>
+		<button class="btn btn-default">YES</button>
+		<button class="btn btn-default">NO</button>
+	</div>
+	<div class="well">
+		Please describe the specific activity you would like to focus on:
+		<textarea class="form-control"></textarea>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">
+		<label>Are you sure this is a specific activity?</label><br/>
+		<button class="btn btn-default">YES</button>
+		<button class="btn btn-default">NO</button>
+	</div>
+	<div class="well">
+		<label>Choose one setting where this activity takes place?</label><br/>
+		<select class="form-control"><option>Choose a setting</option></select><br/>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">
+		<i>Check to see if parent has entered any specific activities has not been developed</i><br/>
+		<button class="btn btn-default">YES</button>
+		<button class="btn btn-default">NO</button>
+	</div>
+	<div class="well">
+		<i class="label label-danger">Check to see if parent has entered any specific activities has not been developed</i>
+	</div>
+	<div class="well">
+		<label>Which setting would you like to focus on first?</label><Br/>
+		<select class="form-control"><option>Choose a setting</option></select><br/>
+		<button class="btn">Continue</button><br/>
+	</div>
+	<div class="well">	
+		<label>Are you sure this what you want?</label><br/>
+		<button class="btn btn-default">YES</button>
+		<button class="btn btn-default">NO</button>
+	</div>
+	<div class="well">	
+		<label>Do you want to try this a different way?</label><br/>
+		<button class="btn btn-default">YES</button>
+		<button class="btn btn-default">NO</button>
+	</div>
+	<div class="well">	
+		<label>Sort activities into now and later</label><Br/>
+		<h4>Now</h4>
+		<ul><li>Activity #1</li></ul>
+		<h4>Later</h4>
+		<ul><li>Activity #2</li></ul>
+	</div>
+	<div class="well">	
+		<label>The first item you selected in the now category was:</label><Br/>
+		<div class="alert alert-info">Activity #1</div>
+	</div>
+</div>
+
+<div ng-show="checkout.step == 2">
+	<div class="well">
+		<label class="label label-warning">
+		Check to see if there is a specific activity
+		</label><Br/>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">
+		<label class="label label-warning">Check if desired change from YC-PEM for activity exists</label>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">
+		<label class="label label-warning">Have parent enter desired change data</label><br/>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">
+		<label class="label label-warning">Have parent confirm frequency value indicated on YC-PEM</label><br/>
+		<select class="form-control"><option>Choose a setting</option></select><br/>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">
+		<label class="label label-warning">Check to see if frequency is NEVER</label><br/>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">
+		<i class="label label-warning">Have parent confirm INVOLVEMENT value indicated on YC-PEM</i><Br/>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">
+		<i class="label label-warning">Show what I want table:</i><Br/>
+		<ul>
+			<li>Frequency</li>
+			<li>Involvement</li>
+			<li>Broader variety</li>
+		</ul>
+		<button class="btn">Continue</button><br/>
+	</div>
+	<div class="well">	
+		<i class="label label-warning">Have parent write a short term goal for frequency, involvement, broader variety.</i><Br/>
+		<textarea class="form-control" placeholder="please write a short term goal"></textarea>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">	
+		<label>Summary</label><br/>
+		<button class="btn btn-default">Continue</button>
+	</div>
+	<div class="well">	
+		<label class="label label-warning">STOP</label>
+	</div>
+	<div class="well">	
+		<label class="label label-warning">Step 3</label>
+	</div>
+</div>

@@ -13,7 +13,8 @@
     LEARN_ABOUT_ANCHORS: '/learn_about_anchors',
     TOOLS: '/tools',
     HANDBOOKS: '/handbooks',
-    TIPS_ARCHIVE: '/tips_archive'
+    TIPS_ARCHIVE: '/tips_archive',
+    CHECKOUT: '/checkout'
   };
 
   angular.module('cbitsPrototype.constants')

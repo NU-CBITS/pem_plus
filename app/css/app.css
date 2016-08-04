@@ -58,9 +58,14 @@ h2 {
 
 }
 
+.strategy li {
+    list-style-type:;
+}
+
 /* to preserve vertical height of divs in rows */
 .height200 {height:200px;}
 .height245 {height:245px;}
+.height300 {height:300px;}
 
 /* callouts */
 .bs-callout {
@@ -120,4 +125,4 @@ h2 {
     color: #5bc0de;
 }
 
-
+.strategy {float:left;}

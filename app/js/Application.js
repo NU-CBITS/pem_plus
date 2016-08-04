@@ -82,7 +82,11 @@
           controller: 'TipsArchiveController',
           controllerAs: 'tips'
         })
-
+        .when(Routes.CHECKOUT, {  
+          templateUrl: 'partials/checkout.html',
+          controller: 'CheckOutController',
+          controllerAs: 'checkout'
+        })
     },
     run: function run($rootScope, $location, $q, $window, 
                       Routes, sessionQuestionService, resourceCache,

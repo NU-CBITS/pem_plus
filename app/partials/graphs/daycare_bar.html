@@ -1,9 +1,9 @@
-<h2>Home Participation Profile</h2>
+<h2>Daycare/Preschool Profile</h2>
 <div class="row">
 <div class="col-md-6"><h4><b>This diagram shows how often your child participates in daycare/preschool activities.</b></h4><p>
-1= never<br/> 2= once in the last 4 months<br/> 3= few times in the last 4 months<br/> 4= once in the last month<br/> 5= few times in the last month<br/> 6= once each week<br/> 7= few times each week<br/> 8= once or more each day)</p></div>
+1 = never<br/> 2 = once in the last 4 months<br/> 3 = few times in the last 4 months<br/> 4 = once in the last month<br/> 5 = few times in the last month<br/> 6 = once each week<br/> 7 = few times each week<br/> 8 = once or more each day</p></div>
 <div class="col-md-6"><h4><b>This diagram shows how involved your child is when participating in daycare/preschool activities.</b></h4><p>
-1= not very involved<br/> 3= somewhat involved<br/> 5= very involved</p></div>
+1 = not very involved<br/> 3 = somewhat involved<br/> 5 = very involved</p></div>
 </div>
 
 <div class="row">
@@ -16,7 +16,7 @@
     $('#container').highcharts({
 
         chart: {
-            type: 'column'
+            type: 'bar'
         }, credits: {
       enabled: false
   },
@@ -31,12 +31,13 @@
         },
 
         xAxis: {
-            categories: ['Group learning','Field trips and events','Socializing with friends'],
+            categories: ['Group learning','Field trips/ events','Socializing with friends'],
             tickmarkPlacement: 'on',
             lineWidth: 0
         },
 
         yAxis: {
+            allowDecimals: false,
             gridLineInterpolation: 'polygon',
             lineWidth: 0,
             min: 0,
@@ -56,14 +57,14 @@
         },
 
         series: [{
-            name: 'This Year',
+            name: 'Now',
             data: [8,3,4],
             color:'#1e497c'
 
         }, {
-            name: 'Last Year',
+            name: 'Then',
             data: [8,2,1],
-            red:'#1e497c'
+            color:'#990000'
         }]
 
     });
@@ -75,7 +76,7 @@
     $('#container2').highcharts({
 
         chart: {
-            type: 'column'
+            type: 'bar'
         },
          credits: {
               enabled: false
@@ -90,7 +91,7 @@
         },
 
         xAxis: {
-            categories: ['Group learning','Field trips and events','Socializing with friends'],
+            categories: ['Group learning','Field trips/ events','Socializing with friends'],
             tickmarkPlacement: 'on',
             lineWidth: 0
         },
@@ -98,7 +99,7 @@
         yAxis: {
             gridLineInterpolation: 'polygon',
             lineWidth: 0,
-            min: 0,
+            min: 1,
             max:5
         },
 
@@ -115,11 +116,13 @@
         },
 
         series: [{
-            name: 'This Year',
+            name: 'Now',
             data: [1,5,3],
+            color:'#1e498c'
         }, {
-            name: 'Last Year',
+            name: 'Then',
             data: [1,3,3],
+            color:'#990000'
         }]
 
     });
