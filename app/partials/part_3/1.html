@@ -1,0 +1,200 @@
+<div class="btn-group">
+	<button class="btn btn-default btn-sm" ng-hide="checkout.showHelp" ng-click="checkout.showHelp = true;">Need help?</button>
+	<button ng-show="checkout.showHelp" class="btn btn-default btn-sm">Frequently Asked Questions</button>
+	<button ng-show="checkout.showHelp" class="btn btn-default btn-sm">Send an Email</button>
+	<button ng-show="checkout.showHelp" class="btn btn-default btn-sm">Get a Phone Call</button>
+</div><br/><br/>
+
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#1</span>
+	<p>In this first step, we would like to know which of these activities you want to work on with your child first.</p>
+	<p>Also, the first step typically takes parents about 15-20 minutes to complete. If now is not a good time to complete this step, you can stop now and continue at a better time.</p>
+	<button class="btn btn-primary">Continue</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#2</span>
+	<label>Do you have a specific activity in mind you would like to work on first?</label><br/>
+	<button class="btn btn-primary">YES</button>
+	<button class="btn btn-primary">NO</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#3</span>
+	Please describe the activity you would like to focus on (e.g., story time, getting ready for bedtime, going to the park):
+
+	<textarea class="form-control" ng-model="checkout.activity_focus"></textarea>
+	<button class="btn btn-primary">Continue</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#4</span>
+	<h3>Great!</h3> <h4>You want to focus on <label class="label label-info label-lg">{{checkout.activity_focus}}</label>.</h4> <p>Before we continue, are you sure this is a specific activity? (Click frequently asked questions on the right to see examples.)</p>
+	<label>Are you sure this is a specific activity?</label><br/>
+	<button class="btn btn-primary">YES</button>
+	<button class="btn btn-primary">NO</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#5</span>
+	<h3>You selected: <label class="label label-info label-lg">{{checkout.activity_focus}}</label></h3>
+	<label>Does this activity occur in more than one place?</label><br/>
+	<button class="btn btn-primary" ng-click="checkout.activity_multiple_settings = true;">YES</button>
+	<button class="btn btn-primary" ng-click="checkout.activity_multiple_settings = false;">NO</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#6</span>
+	<label>Choose one setting where <label class="label label-info label-lg">{{checkout.activity_focus}}</label> takes place?</label><br/>
+	<select class="form-control" ng-model="checkout.activity_setting" placeholder="choose a setting">
+		<option>Community</option>
+		<option>Daycare/Preschool</option>
+		<option>Home</option>
+	</select><br/>
+	<button class="btn btn-primary">Continue</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#7</span>
+	<label>What activity category do you feel best fits <label class="label label-info label-lg">{{checkout.activity_focus}}</label>?</label><br/>
+	<select ng-show="checkout.activity_setting == 'Community'" class="form-control" ng-model="checkout.activity_category" placeholder="choose a category">
+        <option>Shopping/ errands</option>
+        <option>Dining out</option>
+        <option>Routine appointments</option>
+        <option>Classes/ lessons</option>
+        <option>Organized physical activities</option>
+        <option>Community attractions</option>
+        <option>Religious/ spiritual gatherings</option>
+        <option>Social gatherings</option>
+        <option>Community events</option>
+        <option>Unstructured physical activities</option>
+        <option>Overnight visits/ trips</option>
+	</select>
+	<select ng-show="checkout.activity_setting == 'Daycare/Preschool'" class="form-control" ng-model="checkout.activity_category" placeholder="choose a category">
+		<option>Group learning</option>
+		<option>Field trips/ events</option>
+		<option>Socializing with friends</option>
+	</select>
+	<select ng-show="checkout.activity_setting == 'Home'" class="form-control" ng-model="checkout.activity_category" placeholder="choose a category">
+        <option>Getting rest</option>
+        <option>Personal care management</option>
+        <option>Getting clean</option> 
+        <option>Mealtime</option>
+        <option>Cleaning up</option>
+        <option>Meal preparation</option>
+        <option>Taking care of other family members</option>
+        <option>Dishes/ laundry</option>
+        <option>Arts, crafts, stories, music</option>
+        <option>Screen time</option>
+        <option>Indoor play / games</option>
+        <option>Celebrations at home</option>
+        <option>House guests<option>
+	</select>
+	<br/>
+	<button class="btn btn-primary">Continue</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#8</span>
+	<h4>Activity Details for <label class="label label-info label-lg">{{checkout.activity_focus}}</label></h4>
+
+	<ul>
+		<li ng-show="checkout.activity_multiple_settings">Occurs in multiple settings</li>
+		<li>Occurs primarily at {{checkout.activity_setting}}</li>
+		<li>Is a {{checkout.activity_category}} kind of activity</li>
+	</ul>
+	<br/>
+	<p><i>You will be focusing on this activity for the rest of PEM+!</i></p>
+	<p>If you are on board with this, press <button class="btn btn-primary">Continue</button></p>
+	<p>If you'd like to change the activity in anyway, <button class="btn btn-info">Start Over to Create a New Activity</button>.</p> 
+
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#9</span>
+	<p>In your report, it asked you about <b>what you want to change about your child's participation</b>.</p>
+	<p>You can see the activities in which you want your child's participation to change in one or more settings – home, daycare/preschool, and community.</p>
+	<label>Which setting would you like to focus on first?</label></br>
+	<select class="form-control" ng-model="checkout.activity_setting" placeholder="choose a setting">
+		<option>Community</option>
+		<option>Daycare/Preschool</option>
+		<option>Home</option>
+	</select><br/>
+	<button class="btn btn-primary">Continue</button><br/>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#10</span>
+	<p>For <b>{{checkout.activity_setting}}</b>, let’s prioritize your activities in the order you are going to work on them!</p> 
+
+	<table class="table table-striped">
+		<tr ng-repeat="activity in checkout.selectSetting().activities">
+		<td>#{{$index+1}}&nbsp;&nbsp;</td>
+		<td>{{activity}}&nbsp;&nbsp;</td>
+		<td><button ng-show="$index != 0" class="btn btn-success" ng-click="checkout.activityPriorityMoveUp($index)"> move up <i class="fa fa-arrow-up fa-fw"></i></button> <button ng-hide="$index == checkout.selectSetting().activities.length-1" class="btn btn-success" ng-click="checkout.activityPriorityMoveDown($index)"> move down <i class="fa fa-arrow-down fa-fw"></i></button></td></tr>
+	</table>
+	<br/><br/>
+	<p>If this is too confusing, that's OK, <button class="btn btn-primary">Try a Different Approach</button>.</p>
+	<p>Once you are satisfied with the order of your activities, please <button class="btn btn-primary">Continue</button>.</p>
+</div>
+
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#11</span>
+	<h4>Great!</h4>
+	<p>For <b>{{checkout.activity_setting}}</b> your prioritized activity list is:</p> 
+
+	<table class="table table-striped">
+		<tr ng-repeat="activity in checkout.selectSetting().activities">
+		<td>#{{$index+1}}&nbsp;&nbsp;</td>
+		<td>{{activity}}&nbsp;&nbsp;</td>
+	</table>
+	<br/><br/>
+	<button class="btn btn-primary">Continue</button></p>
+</div>
+<div class="well">	
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#12</span>
+	<p>Instead of prioritizing each activity--let's just decide what you want to work on now and what you want to work on later.</p><br/>
+		<table class="table table-striped">
+		<tr ng-repeat="activity in checkout.selectSetting().activities">
+			<td>#{{$index+1}}&nbsp;&nbsp;</td>
+			<td>{{activity}}&nbsp;&nbsp;</td>
+			<td>
+				<label class="btn btn-success">Now <input type="radio" ng-model="checkout.activity_priority[$index]" value="Now"></label>
+				<label class="btn btn-warning">Later <input type="radio" ng-model="checkout.activity_priority[$index]" value="Later"></label>
+			</td>
+		</tr>
+	</table>
+	<button class="btn btn-primary">Continue</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#13</span>
+	<p>For <b>{{checkout.activity_setting}}</b>, you said that you want to work on these <b>now</b>:</p>
+	<ul>
+		<li ng-repeat="activity in checkout.selectSetting().activities" ng-show="checkout.activity_priority[$index] == 'Now'">{{activity}}
+		</li>
+	</ul>
+	<p>And these <b>later</b>:</p>
+	<ul>
+		<li ng-repeat="activity in checkout.selectSetting().activities" ng-show="checkout.activity_priority[$index] == 'Later'">{{activity}}
+		</li>
+	</ul>
+
+	<p>Of the things you said you wanted to work on now--which one do you want to start with?</p>
+
+	<span ng-repeat="activity in checkout.selectSetting().activities" ng-show="checkout.activity_priority[$index] == 'Now'">
+	<label class="btn btn-success">{{activity}} <input type="radio" name="firstActivity">
+	</label><br/>
+	</span>
+	<br/>
+
+	<button class="btn btn-primary">Continue</button>
+</div>
+
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#14</span>
+	<h4>Based on your answers, the first setting and category you decided to focus on is:</h4>
+
+	<p><b>Shopping / Errands</b> in the <b>Community</b></p>
+	<p>Please describe the activity you would like to focus on (e.g., story time, getting ready for bedtime, going to the park):</p>
+	<textarea class="form-control" ng-model="checkout.activity_focus"></textarea>
+	<button class="btn btn-primary">Continue</button>
+</div>
+
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#15</span>
+	<h4>Congratulations!</h4>
+	<p>You are on your way! Below is a summary of the activity you will be focusing on in the next part of the process.</p>
+	<p>If you would like to take a break, feel free to log out and come back later--your progress will be saved.</p>
+	<p>Otherwise, <button class="btn btn-primary">Continue</button></p>
+</div>
