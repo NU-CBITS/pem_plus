@@ -1,52 +1,125 @@
+<div class="btn-group">
+	<button class="btn btn-default btn-sm" ng-hide="checkout.showHelp" ng-click="checkout.showHelp = true;">Need help?</button>
+	<button ng-show="checkout.showHelp" class="btn btn-default btn-sm">Frequently Asked Questions</button>
+	<button ng-show="checkout.showHelp" class="btn btn-default btn-sm">Send an Email</button>
+	<button ng-show="checkout.showHelp" class="btn btn-default btn-sm">Get a Phone Call</button>
+</div><br/><br/>
+	
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#1</span>
+	<h4>Now let's  set some goal(s) for {{checkout.child_name}} in group learning.</h4>
+	<p>This will take 10 or 15 minutes, so make sure you protect time to make sure you can complete it!</p>
+	<button class="btn btn-primary">Continue</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#2</span>
+	<h4>In the YC-PEM, you reported that {{checkout.child_name}} currently participates in <b>field trips and events</b>.</h4> 
 
-	<div class="well">
-		<label class="label label-warning">
-		Check to see if there is a specific activity
-		</label><Br/>
-		<button class="btn btn-default">Continue</button>
+	<p>{{checkout.child_name}} participated:</p>
+	<ul>
+		<li><b>once in the last month</b></li>
+		<!--if never do not show involvement-->
+		<li>and was <b>somewhat involved</b></li>
+	</ul>
+	<button class="btn btn-primary">Continue</button>
+</div>
+
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#3</span>
+	<h4>In the YC-PEM survey, you did not initially want to change <b>field trips and events</b>.</h4>
+	<p>From the choices below, tell us how you would like {{checkout.child_name}}'s participation to change in this type of activity by checking all that apply.</p>
+	<label class="btn btn-success"> <input type="checkbox" ng-model="checkout.participation_change_types.do_more_often" ng-disabled="checkout.participation_change_types.do_less_often"> Do more often</label><br/>
+	<label class="btn btn-success"> <input type="checkbox" ng-model="checkout.participation_change_types.do_less_often" ng-disabled="checkout.participation_change_types.do_more_often"> Do less often</label><br/>
+	<label class="btn btn-success"> <input type="checkbox" ng-model="checkout.participation_change_types.be_more_helpful"> Be more helpful</label><br/>
+	<label class="btn btn-success"> <input type="checkbox" ng-model="checkout.participation_change_types.be_more_interactive"> Be more interactive</label><br/>
+	<label class="btn btn-success"> <input type="checkbox" ng-model="checkout.participation_change_types.do_a_broader_variety"> Do a broader variety</label>
+	<br/><br/>
+	<p>How often has {{checkout.child_name}} participated in <b>field trips and events</b>?</p>
+	<select ng-model="checkout.frequency" class="form-control">
+		<option value="1">1 - Never</option>
+		<option value="2">2 - Once in the last 4 months</option>
+		<option value="3">3 - Few times in the last 4 months</option>
+		<option value="4">4 - Once in the last month</option>
+		<option value="5">5 - Few times in the last month</option>
+		<option value="6">6 - Once each week</option>
+		<option value="7">7 - Few times each week</option>
+		<option value="8">8 - Once or more each day</option>
+	</select>
+
+	<p>How involved has {{checkout.child_name}} been when participating in <strong>field trips and events</strong>?</p>
+	<select ng-model="checkout.involvement_level" class="form-control">
+		<option value="1">1 - Not very involved, your child is seldom engaged in the activity. He or she rarely interacts or helps out very little during the activity</option>
+		<option value="2">2 - Between not very and somewhat involved</option>
+		<option value="3">3 - Somewhat involved, your child is actively engaged some of the time. He or she interacts and/or is helpful for some of the activity</option>
+		<option value="4">4 - Between somewhat and very involved</option>
+		<option value="5">5 - Very involved, your child is actively engaged most of the time. He or she interacts and/or is helpful during most of the activity</option>
+	</select>
+
+	<button class="btn btn-primary">Continue</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#4</span>
+	<p>Right now you said that {{checkout.child_name}}'s participation is <b>somewhat involved</b> in <b>field trips and events</b></p>
+	<p>In your own words describe what being <b>somewhat involved</b> in <b>field trips and events</b> looks like right now:</p>
+	<textarea class="form-control" placeholder="example: {{checkout.child_name}} goes to the public library to read a book about dinosaurs"></textarea></p>
+
+	<h4>You said you want {{checkout.child_name}}'s participation in <b>field trips and events</b> to change to:</h4>
+	<ul>
+	<li>Be more helpful</li>
+	<li>Be more interactive</li>
+	</ul>
+
+	<div ng-show="checkout.participation_change_types.do_more_often || checkout.participation_change_types.do_less_often">
+		<p>How often would you like {{checkout.child_name}} to participate in <b>field trips and events</b> in the future?</p>
+		<select ng-model="checkout.frequency_future" class="form-control">
+			<option value="1">1 - Never</option>
+			<option value="2">2 - Once in the last 4 months</option>
+			<option value="3">3 - Few times in the last 4 months</option>
+			<option value="4">4 - Once in the last month</option>
+			<option value="5">5 - Few times in the last month</option>
+			<option value="6">6 - Once each week</option>
+			<option value="7">7 - Few times each week</option>
+			<option value="8">8 - Once or more each day</option>
+		</select>
 	</div>
-	<div class="well">
-		<label class="label label-warning">Check if desired change from YC-PEM for activity exists</label><br/>
-		<button class="btn btn-default">Continue</button>
+
+	<div ng-show="checkout.participation_change_types.be_more_helpful || checkout.participation_change_types.be_more_interactive || checkout.participation_change_types.do_a_broader_variety">
+		<p>What would you like {{checkout.child_name}}'s involvement to be in the future?</p>
+		 <select ng-model="checkout.involvement_level_future" class="form-control">
+			<option value="1">1 - Not very involved</option>
+			<option value="2">2 - Between not very and somewhat involved</option>
+			<option value="3">3 - Somewhat involved</option>
+			<option value="4">4 - Between somewhat and very involved</option>
+			<option value="5">5 - Very involved</option>
+		</select>
 	</div>
-	<div class="well">
-		<label class="label label-warning">Have parent enter desired change data</label><br/>
-		<button class="btn btn-default">Continue</button>
+
+	<p>In your own words describe what you want <b>field trips and events</b> to look like in the future:<br/>
+	<textarea class="form-control" ng-model="checkout.future_goal" placeholder="example: {{checkout.child_name}} goes to the public library to read a book about dinosaurs, checks out 3 books, has a conversation with another child"></textarea></p>
+	<button class="btn btn-primary">Continue</button>
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#5</span>
+
+	<h4>Do you think that <label class="label label-info">{{checkout.future_goal}}</label> can be accomplished in the next month?</h4>
+	
+	<button class="btn btn-primary" ng-click="checkout.future_goal_possible = 'Yes';">Yes</button>	<button class="btn btn-info" ng-click="checkout.future_goal_possible = 'No';">No</button>
+
+	<div ng-show="checkout.future_goal_possible == 'No'">
+	<h4>That's ok! Just rewrite it so you can achieve in this next month!!</h4>
+	<textarea class="form-control" ng-model="checkout.future_goal" placeholder="example: {{checkout.child_name}} goes to the public library to read a book about dinosaurs, checks out 3 books, has a conversation with another child"></textarea>
+	<button class="btn btn-primary">Continue</button>
 	</div>
-	<div class="well">
-		<label class="label label-warning">Have parent confirm frequency value indicated on YC-PEM</label><br/>
-		<select class="form-control"><option>Choose a setting</option></select><br/>
-		<button class="btn btn-default">Continue</button>
+	<div ng-show="checkout.future_goal_possible == 'Yes'">
+	<h4>Great--let's keep going!</h4>
+	<button class="btn btn-primary">Continue</button>
 	</div>
-	<div class="well">
-		<label class="label label-warning">Check to see if frequency is NEVER</label><br/>
-		<button class="btn btn-default">Continue</button>
-	</div>
-	<div class="well">
-		<i class="label label-warning">Have parent confirm INVOLVEMENT value indicated on YC-PEM</i><Br/>
-		<button class="btn btn-default">Continue</button>
-	</div>
-	<div class="well">
-		<i class="label label-warning">Show what I want table:</i><Br/>
-		<ul>
-			<li>Frequency</li>
-			<li>Involvement</li>
-			<li>Broader variety</li>
-		</ul>
-		<button class="btn btn-default">Continue</button><br/>
-	</div>
-	<div class="well">	
-		<i class="label label-warning">Have parent write a short term goal for frequency, involvement, broader variety.</i><Br/>
-		<textarea class="form-control" placeholder="please write a short term goal"></textarea>
-		<button class="btn btn-default">Continue</button>
-	</div>
-	<div class="well">	
-		<label>Summary</label><br/>
-		<button class="btn btn-default">Continue</button>
-	</div>
-	<div class="well">	
-		<label class="label label-warning">STOP</label>
-	</div>
-	<div class="well">	
-		<label class="label label-warning">Step 3</label>
-	</div>
+
+</div>
+<div class="well">
+	<span ng-show="checkout.show_diagnostic" class="label label-warning label-sm">#6</span>
+	<h3>Success!</h3>
+	<p>Your goal has been created!</p>
+	<p>If you would like to take a break, feel free to log out and come back later--your progress will be saved.</p>
+	<p>Otherwise, <button class="btn btn-primary">Continue</button></p>
+</div>
